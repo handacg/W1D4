@@ -22,11 +22,17 @@ puts list_journalist.count {|c| c =~ /@[A-Z]/}
 puts list_journalist.grep(/[A-Z]/).count
 # => return 215
 
+i = 0
+list_journalist.each do |journalist| #user == new variable
+    journalist.split("").each do |char|
+     if char == "_"
+      i += 1
+  	 end
+  end
+end
 
-
-
-puts list_journalist.count(/(_)/).count
-# => return 72 instead of 75
+puts "il y a #{i} underscores dans les pseudos des journalistes."
+# => return 75
 
 puts list_journalist.sort_by{|order|order}
 # => sort_by is a method to sort in
